@@ -107,7 +107,7 @@ MAX_RETRIES=3
 EOF
 
 # Configure registry
-thv config set-registry $(pwd)/registry/registry.json
+thv config set-registry registry/registry.json
 thv registry list
 ```
 
@@ -150,7 +150,7 @@ EOF
 chmod 600 registry/.secrets/gofetch-secrets.env
 
 # 6. Configure registry
-thv config set-registry $(pwd)/registry/registry.json
+thv config set-registry registry/registry.json
 thv registry list
 
 # 7. Deploy servers
@@ -158,8 +158,11 @@ thv run osv-scanner
 thv run gofetch --env-file registry/.secrets/gofetch-secrets.env
 
 # 8. Verify deployment
-kubectl get mcpservers -A
+# For ToolHive CLI deployments (containers):
 thv ls
+
+# For Kubernetes MCPServer deployments (when using kubectl apply):
+kubectl get mcpservers -A
 
 # 9. Test connectivity (run in separate terminal)
 # kubectl port-forward service/mcp-osv-server-proxy 8080:8080

@@ -1,0 +1,13 @@
+apiVersion: toolhive.stacklok.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: test-gofetch
+  namespace: default
+spec:
+  image: ghcr.io/stackloklabs/gofetch/server:latest
+  permissionProfile:
+    type: builtin
+    name: network
+  env:
+  - name: GOFETCH_PORT
+    value: "8080"

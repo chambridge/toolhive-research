@@ -1,0 +1,28 @@
+apiVersion: toolhive.stacklok.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: osv-server
+  namespace: default
+  labels:
+    app: osv-server
+    toolhive.stacklok.dev/server: osv
+spec:
+  image: ghcr.io/stackloklabs/osv-mcp/server
+  transport: streamable-http
+  targetPort: 8080
+  port: 8080
+  permissionProfile:
+    type: builtin
+    name: network
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  env:
+  - name: LOG_LEVEL
+    value: "info"
+  - name: PORT
+    value: "8080"

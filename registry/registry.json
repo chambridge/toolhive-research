@@ -1,0 +1,246 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stacklok/toolhive/main/pkg/registry/data/schema.json",
+  "version": "1.0.0",
+  "last_updated": "2025-09-23T20:05:00Z",
+  "groups": [
+    {
+      "name": "security-tools",
+      "description": "Security analysis and vulnerability scanning tools for comprehensive security assessment",
+      "servers": {
+        "osv-scanner": {
+          "description": "Open Source Vulnerability scanner that provides security analysis and vulnerability detection for software projects using the OSV database",
+          "image": "ghcr.io/stackloklabs/osv-mcp/server",
+          "status": "Active",
+          "tier": "Community",
+          "transport": "streamable-http",
+          "target_port": 8080,
+          "tools": [
+            "vulnerability-scan",
+            "security-analysis",
+            "osv-query"
+          ],
+          "tags": [
+            "security",
+            "vulnerability",
+            "scanning",
+            "osv"
+          ],
+          "metadata": {
+            "stars": 45,
+            "pulls": 120,
+            "last_updated": "2025-09-23T19:59:00Z"
+          },
+          "repository_url": "https://github.com/stackloklabs/osv-mcp",
+          "permissions": {
+            "network": {
+              "outbound": {
+                "insecure_allow_all": true
+              }
+            }
+          },
+          "env_vars": [
+            {
+              "name": "LOG_LEVEL",
+              "description": "Logging level for the OSV scanner (debug, info, warn, error)",
+              "required": false
+            },
+            {
+              "name": "PORT",
+              "description": "Port number for the HTTP server to listen on",
+              "required": false
+            }
+          ],
+          "docker_tags": [
+            "latest"
+          ],
+          "custom_metadata": {
+            "tested_on": "2025-09-23",
+            "cluster_tested": "kind-toolhive-cluster",
+            "deployment_verified": true,
+            "group": "security-tools"
+          }
+        }
+      }
+    },
+    {
+      "name": "web-tools",
+      "description": "Web content fetching and HTTP automation tools for data retrieval and web scraping tasks",
+      "servers": {
+        "gofetch": {
+          "description": "Web content fetching and HTTP request handling MCP server that provides tools for retrieving and processing web pages and API responses",
+          "image": "ghcr.io/stackloklabs/gofetch/server:latest",
+          "status": "Active", 
+          "tier": "Community",
+          "transport": "stdio",
+          "tools": [
+            "web-fetch",
+            "http-request",
+            "url-get"
+          ],
+          "tags": [
+            "web",
+            "http",
+            "fetch",
+            "scraping"
+          ],
+          "metadata": {
+            "stars": 32,
+            "pulls": 85,
+            "last_updated": "2025-09-23T19:58:00Z"
+          },
+          "repository_url": "https://github.com/stackloklabs/gofetch",
+          "permissions": {
+            "network": {
+              "outbound": {
+                "insecure_allow_all": true
+              }
+            }
+          },
+          "env_vars": [
+            {
+              "name": "GOFETCH_PORT",
+              "description": "Port number for the GoFetch server to listen on",
+              "required": false
+            },
+            {
+              "name": "LOG_LEVEL",
+              "description": "Logging level for GoFetch (debug, info, warn, error)",
+              "required": false
+            },
+            {
+              "name": "USER_AGENT",
+              "description": "Custom User-Agent header for HTTP requests",
+              "required": false,
+              "secret": false
+            },
+            {
+              "name": "MAX_RETRIES",
+              "description": "Maximum number of retries for failed HTTP requests",
+              "required": false
+            },
+            {
+              "name": "API_KEY",
+              "description": "Optional API key for authenticated HTTP requests to external services",
+              "required": false,
+              "secret": true
+            }
+          ],
+          "docker_tags": [
+            "latest"
+          ],
+          "custom_metadata": {
+            "tested_on": "2025-09-23",
+            "cluster_tested": "kind-toolhive-cluster",
+            "deployment_verified": true,
+            "group": "web-tools"
+          }
+        }
+      }
+    }
+  ],
+  "servers": {
+    "osv-scanner": {
+      "description": "Open Source Vulnerability scanner that provides security analysis and vulnerability detection for software projects using the OSV database",
+      "image": "ghcr.io/stackloklabs/osv-mcp/server",
+      "status": "Active",
+      "tier": "Community",
+      "transport": "streamable-http",
+      "target_port": 8080,
+      "tools": [
+        "vulnerability-scan",
+        "security-analysis",
+        "osv-query"
+      ],
+      "tags": [
+        "security",
+        "vulnerability",
+        "scanning",
+        "osv"
+      ],
+      "metadata": {
+        "stars": 45,
+        "pulls": 120,
+        "last_updated": "2025-09-23T19:59:00Z"
+      },
+      "repository_url": "https://github.com/stackloklabs/osv-mcp",
+      "permissions": {
+        "network": {
+          "outbound": {
+            "insecure_allow_all": true
+          }
+        }
+      },
+      "env_vars": [
+        {
+          "name": "LOG_LEVEL",
+          "description": "Logging level for the OSV scanner (debug, info, warn, error)",
+          "required": false
+        },
+        {
+          "name": "PORT",
+          "description": "Port number for the HTTP server to listen on",
+          "required": false
+        }
+      ],
+      "docker_tags": [
+        "latest"
+      ],
+      "custom_metadata": {
+        "tested_on": "2025-09-23",
+        "cluster_tested": "kind-toolhive-cluster",
+        "deployment_verified": true
+      }
+    },
+    "gofetch": {
+      "description": "Web content fetching and HTTP request handling MCP server that provides tools for retrieving and processing web pages and API responses",
+      "image": "ghcr.io/stackloklabs/gofetch/server:latest",
+      "status": "Active", 
+      "tier": "Community",
+      "transport": "stdio",
+      "tools": [
+        "web-fetch",
+        "http-request",
+        "url-get"
+      ],
+      "tags": [
+        "web",
+        "http",
+        "fetch",
+        "scraping"
+      ],
+      "metadata": {
+        "stars": 32,
+        "pulls": 85,
+        "last_updated": "2025-09-23T19:58:00Z"
+      },
+      "repository_url": "https://github.com/stackloklabs/gofetch",
+      "permissions": {
+        "network": {
+          "outbound": {
+            "insecure_allow_all": true
+          }
+        }
+      },
+      "env_vars": [
+        {
+          "name": "GOFETCH_PORT",
+          "description": "Port number for the GoFetch server to listen on",
+          "required": false
+        },
+        {
+          "name": "LOG_LEVEL",
+          "description": "Logging level for GoFetch (debug, info, warn, error)",
+          "required": false
+        }
+      ],
+      "docker_tags": [
+        "latest"
+      ],
+      "custom_metadata": {
+        "tested_on": "2025-09-23",
+        "cluster_tested": "kind-toolhive-cluster",
+        "deployment_verified": true
+      }
+    }
+  }
+}

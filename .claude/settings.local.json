@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.stacklok.com)",
+      "Bash(podman:*)",
+      "Bash(docker:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl describe:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(~/bin/thv ps:*)",
+      "Bash(~/bin/thv ls)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(tree:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

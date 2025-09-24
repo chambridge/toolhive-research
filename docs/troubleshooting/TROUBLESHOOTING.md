@@ -186,8 +186,8 @@ cat registry.json | head -5
 
 **Solutions**:
 ```bash
-# Solution 1: Use absolute path
-thv config set-registry $(pwd)/registry.json
+# Solution 1: Use relative path
+thv config set-registry registry/registry.json
 
 # Solution 2: Verify file permissions
 chmod 644 registry.json
@@ -304,8 +304,8 @@ USER_AGENT=value
 # NOT this:
 export API_KEY=value
 
-# Solution 3: Use absolute path
-thv run gofetch --env-file $(pwd)/.secrets/gofetch-secrets.env
+# Solution 3: Use relative path
+thv run gofetch --env-file registry/.secrets/gofetch-secrets.env
 ```
 
 ### Issue: Secrets Not Applied
@@ -455,7 +455,7 @@ echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc  # or ~/.bashrc
 sudo cp thv /usr/local/bin/
 
 # Solution 4: Create symlink
-ln -s $(pwd)/thv ~/bin/thv
+ln -s ./thv ~/bin/thv
 ```
 
 ### Issue: CLI Commands Hang or Timeout

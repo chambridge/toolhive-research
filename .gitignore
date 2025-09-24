@@ -48,6 +48,7 @@ Icon
 
 # Claude Code specific
 .prompts/
+.claude/settings.local.json
 
 # Kubernetes and container runtime
 kubeconfig
